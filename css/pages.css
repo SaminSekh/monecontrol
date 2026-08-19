@@ -1,0 +1,563 @@
+/* ============================================
+   MONEY MANAGER - PAGES CSS
+   Page-specific styles
+   ============================================ */
+
+/* ============ DASHBOARD ============ */
+.dashboard-greeting {
+  margin-bottom: 20px;
+}
+
+.dashboard-greeting h2 {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.dashboard-greeting p {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.dashboard-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 1024px) {
+  .dashboard-summary-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .dashboard-summary-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.net-worth-card {
+  background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+  color: white;
+  border-radius: var(--radius-xl);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(15,52,96,0.4);
+}
+
+.net-worth-card::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 120px;
+  height: 120px;
+  background: rgba(99,102,241,0.2);
+  border-radius: 50%;
+}
+
+.net-worth-card::after {
+  content: '';
+  position: absolute;
+  bottom: -50px;
+  left: 20px;
+  width: 160px;
+  height: 160px;
+  background: rgba(59,130,246,0.15);
+  border-radius: 50%;
+}
+
+.net-worth-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.7;
+  margin-bottom: 6px;
+}
+
+.net-worth-value {
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 1;
+  margin-bottom: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.net-worth-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 480px) {
+  .net-worth-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
+.net-worth-item { }
+.net-worth-item-label {
+  font-size: 10px;
+  opacity: 0.65;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.net-worth-item-value { font-size: 14px; font-weight: 700; margin-top: 1px; }
+.net-worth-item-value.positive { color: #4ade80; }
+.net-worth-item-value.negative { color: #f87171; }
+
+/* Dashboard quick stats (smaller) */
+.quick-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 1024px) { .quick-stats { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .quick-stats { grid-template-columns: repeat(2, 1fr); } }
+
+.quick-stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 14px;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition);
+}
+
+.quick-stat-card:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+
+.quick-stat-icon { font-size: 20px; margin-bottom: 6px; }
+.quick-stat-value { font-size: 17px; font-weight: 800; color: var(--text-primary); line-height: 1.2; }
+.quick-stat-label { font-size: 11px; color: var(--text-muted); margin-top: 2px; font-weight: 500; }
+
+/* Upcoming payment card */
+.upcoming-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition);
+}
+
+.upcoming-card:hover { box-shadow: var(--shadow-md); }
+
+.upcoming-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.upcoming-info { flex: 1; min-width: 0; }
+.upcoming-name { font-size: 14px; font-weight: 600; color: var(--text-primary); }
+.upcoming-meta { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+.upcoming-amount { font-size: 17px; font-weight: 800; color: var(--text-primary); text-align: right; flex-shrink: 0; }
+
+.balance-check {
+  font-size: 11px;
+  margin-top: 6px;
+  padding: 4px 8px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+}
+
+.balance-ok { background: var(--success-bg); color: var(--success); }
+.balance-warn { background: var(--warning-bg); color: var(--warning); }
+.balance-fail { background: var(--danger-bg); color: var(--danger); }
+
+/* Due badge */
+.due-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+.due-overdue { background: var(--danger-bg); color: var(--danger); }
+.due-soon { background: var(--warning-bg); color: var(--warning); }
+.due-ok { background: var(--success-bg); color: var(--success); }
+
+/* ============ MONEY PAGE ============ */
+.accounts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+.account-total-bar {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-card);
+}
+
+.account-total-label { font-size: 13px; color: var(--text-muted); font-weight: 500; }
+.account-total-value { font-size: 26px; font-weight: 900; color: var(--text-primary); }
+
+/* Transfer flow visual */
+.transfer-flow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--gray-50);
+  border-radius: var(--radius);
+  padding: 12px;
+  margin: 8px 0;
+}
+
+[data-theme="dark"] .transfer-flow { background: var(--surface-2); }
+
+.transfer-flow-account {
+  flex: 1;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.transfer-flow-arrow {
+  font-size: 18px;
+  color: var(--primary);
+}
+
+/* ============ LOANS PAGE ============ */
+.loan-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition);
+}
+
+.loan-card:hover { box-shadow: var(--shadow-md); }
+
+.loan-person {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.loan-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+}
+
+.loan-person-info { flex: 1; }
+.loan-person-name { font-size: 15px; font-weight: 700; }
+.loan-person-phone { font-size: 12px; color: var(--text-muted); }
+
+.loan-amounts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.loan-amount-item {
+  background: var(--gray-50);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  text-align: center;
+}
+
+[data-theme="dark"] .loan-amount-item { background: var(--surface-2); }
+
+.loan-amount-label { font-size: 10px; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em; }
+.loan-amount-value { font-size: 14px; font-weight: 800; color: var(--text-primary); margin-top: 2px; }
+
+/* ============ PAYMENTS/EMI PAGE ============ */
+.emi-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  box-shadow: var(--shadow-card);
+}
+
+.emi-title { font-size: 16px; font-weight: 700; color: var(--text-primary); }
+.emi-category { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+.emi-meta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.emi-meta-item { }
+.emi-meta-label { font-size: 11px; color: var(--text-muted); font-weight: 500; }
+.emi-meta-value { font-size: 14px; font-weight: 700; color: var(--text-primary); }
+
+.bank-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.bank-status.ok {
+  background: var(--success-bg);
+  color: var(--success);
+}
+
+.bank-status.warn {
+  background: var(--warning-bg);
+  color: var(--warning);
+}
+
+.bank-status.fail {
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+
+/* ============ INSURANCE PAGE ============ */
+.insurance-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  box-shadow: var(--shadow-card);
+}
+
+.insurance-type-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.insurance-header { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 12px; }
+.insurance-info { flex: 1; }
+.insurance-name { font-size: 15px; font-weight: 700; }
+.insurance-provider { font-size: 12px; color: var(--text-muted); }
+
+.renewal-countdown {
+  text-align: center;
+  padding: 10px;
+  background: var(--gray-50);
+  border-radius: var(--radius-sm);
+  margin-top: 8px;
+}
+
+[data-theme="dark"] .renewal-countdown { background: var(--surface-2); }
+
+.renewal-days { font-size: 24px; font-weight: 900; color: var(--primary); }
+.renewal-label { font-size: 11px; color: var(--text-muted); }
+
+/* ============ FREELANCING PAGE ============ */
+.client-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  box-shadow: var(--shadow-card);
+}
+
+.client-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.freelance-profit-banner {
+  background: linear-gradient(135deg, #022c22, #14532d);
+  border-radius: var(--radius-xl);
+  padding: 20px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.freelance-profit-banner::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 100px;
+  height: 100px;
+  background: rgba(34,197,94,0.2);
+  border-radius: 50%;
+}
+
+.freelance-stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.freelance-stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+}
+
+.freelance-stat-icon { font-size: 18px; margin-bottom: 5px; }
+.freelance-stat-value { font-size: 15px; font-weight: 800; }
+.freelance-stat-label { font-size: 11px; color: var(--text-muted); font-weight: 500; margin-top: 2px; }
+
+/* Transaction card for freelancing */
+.txn-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition);
+}
+
+.txn-card:hover { box-shadow: var(--shadow-md); }
+
+.txn-info { flex: 1; min-width: 0; }
+.txn-name { font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.txn-meta { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
+
+.txn-amounts { text-align: right; flex-shrink: 0; }
+.txn-income { font-size: 14px; font-weight: 700; color: var(--success); }
+.txn-expense { font-size: 12px; color: var(--danger); }
+.txn-profit { font-size: 12px; font-weight: 600; color: var(--primary); }
+
+/* ============ REPORTS PAGE ============ */
+.report-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+  .report-summary-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.report-summary-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 14px;
+  box-shadow: var(--shadow-card);
+}
+
+.report-summary-label { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+.report-summary-value { font-size: 20px; font-weight: 800; color: var(--text-primary); margin-top: 4px; }
+
+/* ============ SETTINGS PAGE ============ */
+.settings-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 16px;
+}
+
+.settings-section-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 14px 20px 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.settings-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border-light);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.settings-item:last-child { border-bottom: none; }
+.settings-item:hover { background: var(--gray-50); }
+[data-theme="dark"] .settings-item:hover { background: var(--surface-2); }
+
+.settings-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.settings-item-text { flex: 1; }
+.settings-item-title { font-size: 14px; font-weight: 600; color: var(--text-primary); }
+.settings-item-sub { font-size: 12px; color: var(--text-muted); margin-top: 1px; }
+
+.settings-item-right { color: var(--text-muted); font-size: 14px; }
+
+.danger-zone {
+  background: var(--danger-bg);
+  border: 1px solid rgba(239,68,68,0.2);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  margin-bottom: 16px;
+}
+
+.danger-zone h4 { font-size: 14px; font-weight: 700; color: var(--danger); margin-bottom: 4px; }
+.danger-zone p { font-size: 13px; color: var(--text-muted); margin-bottom: 12px; }
